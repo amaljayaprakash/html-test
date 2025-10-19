@@ -1,44 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portal Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-        }
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        h1 {
-            color: #2c3e50;
-        }
-        p {
-            font-size: 1.2em;
-            color: #34495e;
-        }
-        a {
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.2em;
-        }
-        a:hover {
-            background-color: #2980b9;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animal Entry Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f4f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 320px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      color: #333;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #555;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    button {
+      width: 100%;
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      font-size: 16px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to the Portal</h1>
-        <p>This is a temporary portal page. Scan the QR code to access it from your mobile device.</p>
-        <a href="https://your-temporary-portal-url.com">Go to Portal</a>
-    </div>
+  <div class="container">
+    <h2>Animal Details</h2>
+    <form id="animalForm">
+      <label for="animalId">Animal ID:</label>
+      <input type="text" id="animalId" name="animalId" required>
+
+      <label for="animalName">Animal Name:</label>
+      <input type="text" id="animalName" name="animalName" required>
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("animalForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      const id = document.getElementById("animalId").value.trim();
+      const name = document.getElementById("animalName").value.trim();
+
+      if (id && name) {
+        alert(`Animal Submitted:\nID: ${id}\nName: ${name}`);
+        this.reset();
+      } else {
+        alert("Please fill in all fields.");
+      }
+    });
+  </script>
 </body>
 </html>
