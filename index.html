@@ -20,7 +20,7 @@
       padding: 30px 40px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 320px;
+      width: 340px;
     }
 
     h2 {
@@ -36,7 +36,7 @@
       color: #555;
     }
 
-    input[type="text"] {
+    input[type="text"], textarea {
       width: 100%;
       padding: 10px;
       margin-bottom: 20px;
@@ -44,6 +44,11 @@
       border-radius: 6px;
       font-size: 16px;
       box-sizing: border-box;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 80px;
     }
 
     button {
@@ -73,6 +78,9 @@
       <label for="animalName">Animal Name:</label>
       <input type="text" id="animalName" name="animalName" required>
 
+      <label for="animalHealth">Health Condition:</label>
+      <textarea id="animalHealth" name="animalHealth" placeholder="Enter health condition..." required></textarea>
+
       <button type="submit">Submit</button>
     </form>
   </div>
@@ -82,9 +90,10 @@
       event.preventDefault();
       const id = document.getElementById("animalId").value.trim();
       const name = document.getElementById("animalName").value.trim();
+      const health = document.getElementById("animalHealth").value.trim();
 
-      if (id && name) {
-        alert(`Animal Submitted:\nID: ${id}\nName: ${name}`);
+      if (id && name && health) {
+        alert(`Animal Submitted:\nID: ${id}\nName: ${name}\nHealth: ${health}`);
         this.reset();
       } else {
         alert("Please fill in all fields.");
